@@ -1,0 +1,61 @@
+{
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "es2021": true,
+        "jasmine": true
+    },
+    "parser": "@typescript-eslint/parser",
+    "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "eslint:recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:import/typescript",
+        "plugin:prettier/recommended",
+        "plugin:jasmine/recommended"
+    ],
+    "plugins": ["@typescript-eslint", "jasmine"],
+    "settings": {
+      "react": {
+        "version": "detect"
+      },
+      "import/parsers": {
+        "@typescript-eslint/parser": [".ts"]
+      },
+      "import/resolver": {
+        "node": {
+          "extensions": [".js", ".ts"]
+        },
+        "typescript": {
+          "project": "./"
+        }
+      }
+    },
+    "parserOptions": {
+        "ecmaVersion": "latest"
+    },
+    "rules": {
+        "semi": [
+            "error",
+            "always"
+        ],
+        "no-nested-ternary": "error",
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": ["error"],
+        "@typescript-eslint/no-explicit-any": "off",
+        "import/no-unresolved": [
+          2,
+          {
+            "ignore": [".(png|svg|jpg|gif)$"]
+          }
+        ],
+        "linebreak-style": ["error", "unix"],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "prettier/prettier": ["error", {"singleQuote": true, "parser": "flow"}]
+    }
+}

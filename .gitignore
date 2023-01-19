@@ -1,0 +1,7 @@
+node_modules
+.env
+yarn.lock
+yarn-error.log
+package-lock.json
+client.js
+server/build

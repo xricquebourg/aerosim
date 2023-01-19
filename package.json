@@ -1,0 +1,14 @@
+{
+  "devDependencies": {
+    "husky": "^8.0.1"
+  },
+  "scripts": {
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix",
+    "prepare": "husky install"
+  },
+  "validate-branch-name": {
+    "pattern":"^(server|develop|main|master){1}$|^(feature|bugfix|ts)\/([a-zA-Z0-9_-]+?)(\/0-9+)?$",
+    "errorMsg":"Branch name format : <type>/<name>/<issue_ID>"
+  }
+}

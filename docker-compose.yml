@@ -1,0 +1,61 @@
+services:
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    container_name: Aerosim_db
+    restart: always
+    # environment:
+    #   MYSQL_DATABASE: "aerosim"
+    #   MYSQL_USER: "user"
+    #   MYSQL_PASSWORD: "password"
+    #   MYSQL_ROOT_PASSWORD: "rootPass"
+    env_file:
+      - ./server/.env
+    ports:
+      - 3306:3306
+    
+    expose:
+      # Opens port 3306 on the container
+      - "3306"
+      # Where our data will be persisted
+    volumes:
+      - my-db:/var/lib/mysql
+# Names our volume
+volumes:
+  my-db:
+
+  # phpmyadmin:
+  #   image: phpmyadmin/phpmyadmin
+  #   container_name: TCOT_phpmyadmin
+  #   links:
+  #     - db
+  #   environment:
+  #     PMA_ARBIRARY: 1
+  #     PMA_HOST: db
+  #   restart: always
+  #   ports:
+  #      - 8082:80
+  #   depends_on:
+  #     - "db"
+
+  # node:
+  #   container_name: AeroSim_node
+  #   build:
+  #     context: ./server
+  #     dockerfile: ./Dockerfile
+  #   user: "node"
+  #   working_dir: /home/node/app/
+  #   volumes:
+  #     - ./server/:/home/node/app/
+  #   env_file:
+  #     - './server/.env'
+  #   environment:
+  #     # - MYSQL_HOST=db
+  #     - TZ=Europe/Paris
+  #   ports:
+  #     # - "5600:5600/udp"
+  #     - "${HTTP_PORT}:${HTTP_PORT}"
+  # depends_on:
+  #     - db
+# volumes:
+# mysql-:data:
